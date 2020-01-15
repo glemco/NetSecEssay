@@ -16,7 +16,7 @@ In the following example, we have a target which surrounded by some Beacons. At 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=3cm]{2.jpg}
+    \includegraphics[width=2cm]{2.jpg}
     \caption{Localization \cite{jin18}}
     \label{fig:Localization}
 \end{figure}
@@ -25,14 +25,16 @@ As mentioned before, the exact time of sending and receiving of a signal and the
 
 Let the $t_s$ be the time which the emitter sends the signal and $t_a$ is the time which arrives to the target or target receives the signal. c is the speed of light.
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=6cm]{3.jpg}
-    \caption{distance formula \cite{jin18}}
-    \label{fig:Localization}
-\end{figure}
 Using this formula d (the distance) can be calculated and is used to determine the location of the target. ToA technique requires highly accurate synchronization of sender and receiver clocks \cite{jin18}
 
+
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=4cm]{3.jpg}
+	\caption{distance formula \cite{jin18}}
+	\label{fig:Localization}
+\end{figure}
 
 
 
@@ -106,6 +108,3 @@ false signal strengths and times of signal sending or receiving.
 For example, consider Time Difference of Arrival systems which an attacker could be able to send signals to base stations at different times. This type of attack is in the category of Internal Attacks. Jamming is the type of attack that can occur in the system and is a type of External Attack. with jamming, the attacker can run timing attack that is possible with delaying the signal. An internal attack in the localization system could be also false position report. According to Srdjan et al's protocol, it is able to detect false position reports with checking the distance and also the regularity of the reported position \cite{srivastava}.
 
 The most important privacy concern in TDoA Network is that, nodes reveal their location to any station that requests for a location verification. As a result, an attacker is able to send a location verification request to a node and know where exactly it is located \cite{srivastava}. As Srdjan et al stated, by using authentication is it possible to prevent such threats.
-
-\subsection{Conclusion}
-Both ToA and TDoA systems are widely used for to get location in the navigation systems. However, as mentioned before an attacker could easily detect the position of a node in the ToA network, so it is recommended to obtain TDoA technique.Considering the big geolocation systems, two factors seem to be more important which are security and accuracy. In developing such networks, the Prioritization should be considered. As in some systems less accuracy leads to undesirable results and similarly some systems prefer the higher security. Therefore, choosing between two techniques needs to know the preferences first.
