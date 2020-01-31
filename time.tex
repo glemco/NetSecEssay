@@ -8,11 +8,11 @@ Usually an object at an unknown location is able to create signals at an unknown
 \begin{figure}[htp]
     \centering
     \includegraphics[width=3cm]{1.jpg}
-    \caption{the location of Target and Beacons \cite{brian17}}
+    \caption{The location of Target and Beacons \cite{brian17}}
     \label{fig:Target location}
 \end{figure}
 
-In the following example, we have a target which surrounded by some Beacons. At time $t_1$ Beacon one sends a signal to the target, which the Target receives the signal at time $t_2$. Now the distance has to be calculated between the Target and Beacon one($d_1$). According to Fig. 2, the next step is to draw a circle of possible location. The other two Beacons will send a signal to the target and then calculate the distance as the Beacon 1.
+In the following example, we have a target which surrounded by some Beacons. At time $t_1$ Beacon one sends a signal to the target, which the Target receives the signal at time $t_2$. Now the distance has to be calculated between the Target and Beacon one($d_1$). According to Fig. \ref{fig:Localization}, the next step is to draw a circle of possible location. The other two Beacons will send a signal to the target and then calculate the distance as the Beacon 1.
 
 \begin{figure}[htp]
     \centering
@@ -27,51 +27,40 @@ Let the $t_s$ be the time which the emitter sends the signal and $t_a$ is the ti
 
 Using this formula d (the distance) can be calculated and is used to determine the location of the target. ToA technique requires highly accurate synchronization of sender and receiver clocks \cite{jin18}
 
-
-
-\begin{figure}[htp]
-	\centering
-	\includegraphics[width=4cm]{3.jpg}
-	\caption{distance formula \cite{jin18}}
-	\label{fig:Localization}
-\end{figure}
-
-
+\begin{equation}
+	\label{eqn:Localization}
+    d = c \cdot (t_{arrival} - t_{sent})
+\end{equation}
+\eqncaption{Distance formula \cite{jin18}}
 
 \subsection{Time Difference of Arrival (TDoA)}
 Time Difference of Arrival technique which is also called multilateration which is often used in radar systems for localization of mobile targets \cite{schaefer15}. In this technique, three or more receivers at different locations capture the signal. The next step is the evaluation of the difference in arrival time of the signal. Because of the varying distances between transmitter and receivers, the signal arrives at different times for different receivers. The difference in arrival time is called TDoA \cite{brian17}.
 For example, consider two Beacons (receivers) that received the signal at different points. Using this equation, we want to calculate the distance:
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=3cm]{4.jpg}
-    \caption{distance formula \cite{jin18}}
-    \label{fig:formula}
-\end{figure}
+\begin{equation}
+	\label{eqn:distance}
+    \Delta d = c \cdot (\Delta t)
+\end{equation}
+\eqncaption{Distance formula \cite{jin18}}
 
-Say c is the speed of light and Delta t is the difference in arrival times at different Beacons \cite{schaefer18}. Above mentioned equation is applicable to the two dimensions where $(x_1,y_1)$ and $(x_2,y_2)$ would be the positions of Beacons.
+Say c is the speed of light and $\Delta t$ is the difference in arrival times at different Beacons \cite{schaefer18}. Above mentioned equation is applicable to the two dimensions where $(x_1,y_1)$ and $(x_2,y_2)$ would be the positions of Beacons.
 
-
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=6cm]{5.jpg}
-    \caption{distance formula for two dimension \cite{schaefer1}}
-    \label{fig:formula}
-\end{figure}
-
-
+\begin{equation}
+    \label{eqn:distance2}
+    \Delta d = \sqrt{(x_2-x)^2-(y_2-y)^2} - \sqrt{(x_1-x)^2-(y_1-y)^2}
+\end{equation}
+\eqncaption{Distance formula for two dimension \cite{schaefer18}}
 
 
 Consider $v_1$ and $v_2$ as synchronized versifiers (beacons in above example). The time of received signal is calculated using this equation:
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=8cm]{6.jpg}
-    \caption{Time of received signal \cite{schaefer18}}
-    \label{fig:formula}
-\end{figure}
-
+\begin{equation}
+    \label{eqn:time_received_sig}
+    t_1 = t + \frac{\norm{p_1-p_P(t)}}{c}
+    \quad \text{and} \quad
+    t_2 = t + \frac{\norm{p_2-p_P(t)}}{c}
+\end{equation}
+\eqncaption{Time of received signal \cite{schaefer18}}
 
 The Time Difference of Arrival will be calculated after collecting all the timestamps. Using this formula we wil have TDoA:
 
@@ -82,14 +71,23 @@ The Time Difference of Arrival will be calculated after collecting all the times
     \caption{Calculating Time Difference of Arrival \cite{schaefer18}}
     \label{fig:formula}
 \end{figure}
+\begin{equation}
+    \label{eqn:time_difference_arr}
+    \begin{split}
+        t_1 - t_2 \quad =& \quad t_1 - t_2 \\
+        =& \quad (t+\frac{\norm{p_1-p_P(t)}}{c}) - (t+\frac{\norm{p_2-p_P(t)}}{c})\\
+        =& \quad \frac{\norm{p_1-p_P(t)} - \norm{p_2-p_P(t)}}{c}
+    \end{split}
+\end{equation}
+\eqncaption{Calculating Time Difference of Arrival \cite{schaefer18}}
 
-In this equation only $p_p(t)$ has not given and it indicates the position of the Target! As you can see in the Fig. 3 the intersection of the different hyperbolas is the location of the $p_p(t)$ or the Target. \cite{brian17}
+In this equation only $p_p(t)$ has not given and it indicates the position of the Target! As you can see in the Fig. \ref{fig:hyp_location} the intersection of the different hyperbolas is the location of the $p_p(t)$ or the Target. \cite{brian17}
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=4cm]{8.jpg}
-    \caption{possible location in relation to all Beacons \cite{brian17}}
-    \label{fig:fig}
+    \caption{Possible location in relation to all Beacons \cite{brian17}}
+    \label{fig:hyp_location}
 \end{figure}
 
 The more versifier (Beacon) we have, one extra hyperbola will be added which will also cross the $p_p(t)$ \cite{schaefer18}.
