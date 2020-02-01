@@ -64,19 +64,12 @@ Consider $v_1$ and $v_2$ as synchronized versifiers (beacons in above example). 
 
 The Time Difference of Arrival will be calculated after collecting all the timestamps. Using this formula we wil have TDoA:
 
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=8cm]{7.jpg}
-    \caption{Calculating Time Difference of Arrival \cite{schaefer18}}
-    \label{fig:formula}
-\end{figure}
 \begin{equation}
     \label{eqn:time_difference_arr}
     \begin{split}
-        t_1 - t_2 \quad =& \quad t_1 - t_2 \\
-        =& \quad (t+\frac{\norm{p_1-p_P(t)}}{c}) - (t+\frac{\norm{p_2-p_P(t)}}{c})\\
-        =& \quad \frac{\norm{p_1-p_P(t)} - \norm{p_2-p_P(t)}}{c}
+        t_1 - t_2 \quad =& \quad \hat t_1 - \hat t_2 \\
+        =& \quad \left(t+\frac{\norm{p_1-p_P(t)}}{c}\right) - \left(t+\frac{\norm{p_2-p_P(t)}}{c}\right)\\
+        =& \quad \frac{\norm{p_1-p_P(t)} - \norm{p_2-p_P(t)}}{c} \ .
     \end{split}
 \end{equation}
 \eqncaption{Calculating Time Difference of Arrival \cite{schaefer18}}

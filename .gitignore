@@ -3,3 +3,4 @@
 *.aux
 main.pdf
 *.gz
+*.out
